@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -50,6 +51,10 @@ public class PostRepository {
     }
 
     public Post findById(Long id) {
+    	for (Post post : ALL_POSTS) {
+			if(id == post.getId())
+				return post;
+		}
         return null;
     }
 }
